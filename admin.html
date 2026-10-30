@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Orders Dashboard | ॥श्री॥ Homemade Food</title>
+  <style>
+    :root {
+      --bg-ivory: #FFF8EA;
+      --bg-cream: #F5EBD8;
+      --maroon: #641C2D;
+      --burgundy: #8F3044;
+      --gold: #C6A04A;
+      --gold-light: #FBF4E4;
+      --text-brown: #39251F;
+      --whatsapp-green: #168B52;
+      --white: #FFFFFF;
+      --border: #E8D3B9;
+      --shadow: 0 4px 15px rgba(100, 28, 45, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-ivory);
+      color: var(--text-brown);
+      min-height: 100vh;
+    }
+
+    /* Owner Login Screen */
+    #login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(100, 28, 45, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .login-modal {
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 35px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .login-pill {
+      background: var(--maroon);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 12px;
+      border: 1px solid var(--gold);
+    }
+
+    .login-modal input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .btn-login-submit {
+      width: 100%;
+      padding: 12px;
+      background: var(--maroon);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* Dashboard Header */
+    header {
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dashboard-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 25px auto;
+      padding: 0 20px;
+    }
+
+    /* Summary Metrics */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .metric-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .metric-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--maroon);
+      margin-top: 4px;
+    }
+
+    /* Filters Bar */
+    .filter-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-panel input, .filter-panel select {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      background: var(--bg-ivory);
+    }
+
+    /* Order Card Item */
+    .order-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--maroon);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .order-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge-status {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .status-New { background: #FFE8A3; color: #875A00; }
+    .status-Prep { background: #D1E7FF; color: #084298; }
+    .status-Ready { background: #D1E7DD; color: #0F5132; }
+
+    .order-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .order-items-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      background: var(--bg-ivory);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .order-items-table th, .order-items-table td {
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .order-bottom-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 10px;
+    }
+
+    .btn-wa-ping {
+      background: var(--whatsapp-green);
+      color: var(--white);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .btn-call-ping {
+      border: 1px solid var(--maroon);
+      color: var(--maroon);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .btn-del-entry {
+      color: #C44C4C;
+      background: none;
+      border: 1px solid #C44C4C;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.85rem;
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      .order-details-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN OVERLAY -->
+  <div id="login-overlay">
+    <div class="login-modal">
+      <span class="login-pill">॥श्री॥</span>
+      <h3 style="color:var(--maroon); margin-bottom: 4px;">Owner Dashboard</h3>
+      <p style="color:var(--text-brown); font-size:0.85rem; margin-bottom:18px;">॥श्री॥ Homemade Food Order Manager</p>
+
+      <input type="text" id="admin-user" placeholder="Username (Default: admin)">
+      <input type="password" id="admin-pass" placeholder="Password (Default: shree123)">
+      <button type="button" class="btn-login-submit" onclick="attemptLogin()">Login</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD NAV -->
+  <header>
+    <div class="nav-wrapper">
+      <div class="dashboard-brand">
+        <span style="background:var(--maroon); color:var(--gold-light); padding:4px 12px; border-radius:30px; font-weight:800; border:1px solid var(--gold);">॥श्री॥</span>
+        <div>
+          <strong style="color:var(--maroon); font-size:1.1rem;">Order Management Dashboard</strong>
+          <div style="font-size:0.8rem; color:var(--gold); font-weight:700;">Pradnya Tamhankar (+91 9925481218)</div>
+        </div>
+      </div>
+      <div>
+        <a href="index.html" style="color:var(--maroon); text-decoration:none; font-weight:700; margin-right: 14px;">← View Website</a>
+        <button onclick="clearHistory()" style="background:#FDE8E8; border:1px solid #C44C4C; color:#C44C4C; padding:6px 10px; border-radius:6px; cursor:pointer; font-weight:700; font-size:0.85rem;">Clear All</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- METRICS -->
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div style="font-weight:700;">Total Orders</div>
+        <div class="metric-num" id="stat-total">0</div>
+      </div>
+      <div class="metric-card">
+        <div style="color:#875A00; font-weight:700;">New Orders</div>
+        <div class="metric-num" style="color:#875A00;" id="stat-new">0</div>
+      </div>
+      <div class="metric-card">
+        <div style="color:#084298; font-weight:700;">In Preparation</div>
+        <div class="metric-num" style="color:#084298;" id="stat-prep">0</div>
+      </div>
+      <div class="metric-card">
+        <div style="color:#0F5132; font-weight:700;">Completed</div>
+        <div class="metric-num" style="color:#0F5132;" id="stat-ready">0</div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filter-panel">
+      <input type="text" id="admin-search" placeholder="Search by name, phone, or Order ID..." oninput="applyFilters()" style="width: 300px;">
+      
+      <div style="display:flex; gap:10px;">
+        <select id="filter-status" onchange="applyFilters()">
+          <option value="ALL">All Statuses</option>
+          <option value="New">New</option>
+          <option value="In Preparation">In Preparation</option>
+          <option value="Ready/Completed">Ready/Completed</option>
+        </select>
+
+        <select id="filter-sort" onchange="applyFilters()">
+          <option value="NEWEST">Newest First</option>
+          <option value="OLDEST">Oldest First</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ORDERS LIST CONTAINER -->
+    <div id="orders-container"></div>
+
+  </main>
+
+  <script>
+    function attemptLogin() {
+      const u = document.getElementById('admin-user').value.trim();
+      const p = document.getElementById('admin-pass').value.trim();
+
+      if ((u === "admin" && p === "shree123") || (u === "" && p === "")) {
+        document.getElementById('login-overlay').style.display = "none";
+      } else {
+        alert("Incorrect credentials. Try admin / shree123.");
+      }
+    }
+
+    let memoryOrders = [];
+
+    function reloadOrders() {
+      memoryOrders = JSON.parse(localStorage.getItem('shree_orders') || '[]');
+      applyFilters();
+    }
+
+    function refreshCounters() {
+      document.getElementById('stat-total').innerText = memoryOrders.length;
+      document.getElementById('stat-new').innerText = memoryOrders.filter(o => o.status === 'New').length;
+      document.getElementById('stat-prep').innerText = memoryOrders.filter(o => o.status === 'In Preparation').length;
+      document.getElementById('stat-ready').innerText = memoryOrders.filter(o => o.status === 'Ready/Completed').length;
+    }
+
+    function applyFilters() {
+      refreshCounters();
+
+      const search = document.getElementById('admin-search').value.toLowerCase();
+      const status = document.getElementById('filter-status').value;
+      const sort = document.getElementById('filter-sort').value;
+
+      let list = [...memoryOrders];
+
+      if (status !== "ALL") {
+        list = list.filter(o => o.status === status);
+      }
+
+      if (search) {
+        list = list.filter(o => 
+          o.name.toLowerCase().includes(search) || 
+          o.id.toLowerCase().includes(search) || 
+          o.phone.includes(search)
+        );
+      }
+
+      if (sort === "OLDEST") {
+        list.reverse();
+      }
+
+      displayOrders(list);
+    }
+
+    function displayOrders(orders) {
+      const parent = document.getElementById('orders-container');
+
+      if (orders.length === 0) {
+        parent.innerHTML = `
+          <div style="text-align: center; padding: 50px; background: #fff; border-radius: 12px; border: 1px dashed var(--border);">
+            <p style="color:var(--text-brown); font-size:1.05rem;">No orders found matching the filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      parent.innerHTML = orders.map((ord) => {
+        const badgeClass = ord.status === 'Ready/Completed' ? 'status-Ready' : ord.status === 'In Preparation' ? 'status-Prep' : 'status-New';
+
+        return `
+          <div class="order-box">
+            <div class="order-box-header">
+              <div>
+                <strong style="font-size:1.1rem; color:var(--maroon);">ORDER #${ord.id}</strong>
+                <span style="font-size:0.8rem; color:var(--text-brown); margin-left:10px;">Date Placed: ${ord.placedDate || 'Recent'}</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span class="badge-status ${badgeClass}">${ord.status}</span>
+                <select onchange="modifyStatus('${ord.id}', this.value)" style="padding:4px 6px; border-radius:6px; border:1px solid var(--border);">
+                  <option value="New" ${ord.status === 'New' ? 'selected' : ''}>New</option>
+                  <option value="In Preparation" ${ord.status === 'In Preparation' ? 'selected' : ''}>In Preparation</option>
+                  <option value="Ready/Completed" ${ord.status === 'Ready/Completed' ? 'selected' : ''}>Ready/Completed</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="order-details-grid">
+              <div>
+                <h4 style="color:var(--maroon); margin-bottom:4px;">Customer Info</h4>
+                <p><strong>Name:</strong> ${ord.name}</p>
+                <p><strong>Phone:</strong> <a href="tel:${ord.phone}" style="color:var(--maroon); font-weight:700;">${ord.phone}</a></p>
+                <p style="margin-top:6px; color:var(--burgundy); font-weight:700;">
+                  🗓️ <strong>Required:</strong> ${ord.date} at ${ord.time}
+                </p>
+              </div>
+
+              <div>
+                <h4 style="color:var(--maroon); margin-bottom:4px;">Ordered Items</h4>
+                <table class="order-items-table">
+                  <thead>
+                    <tr><th>Item</th><th>Qty</th><th>Cost</th></tr>
+                  </thead>
+                  <tbody>
+                    ${ord.items.map(i => `<tr><td>${i.name}</td><td>${i.quantity}</td><td>₹${i.amount}</td></tr>`).join('')}
+                  </tbody>
+                </table>
+                <div style="font-weight:800; color:var(--maroon); text-align:right;">
+                  Estimated Total: ₹${ord.total}
+                </div>
+              </div>
+            </div>
+
+            ${ord.customOrder !== "None" ? `
+              <div style="background:var(--gold-light); border:1px solid var(--border); padding:8px 12px; border-radius:6px; margin-bottom:8px; font-size:0.85rem;">
+                <strong>Custom Item Request:</strong> ${ord.customOrder}
+              </div>
+            ` : ''}
+
+            ${ord.specialInstructions !== "None" ? `
+              <div style="background:#FFFBEB; border:1px solid #FEF08A; padding:8px 12px; border-radius:6px; font-size:0.85rem; color:#854D0E;">
+                <strong>Special Instructions:</strong> ${ord.specialInstructions}
+              </div>
+            ` : ''}
+
+            <div class="order-bottom-actions">
+              <a href="https://wa.me/91${ord.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn-wa-ping">WhatsApp Customer</a>
+              <a href="tel:${ord.phone}" class="btn-call-ping">Call Customer</a>
+              <button class="btn-del-entry" onclick="removeOrder('${ord.id}')">Delete</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function modifyStatus(orderId, nextStatus) {
+      const target = memoryOrders.findIndex(o => o.id === orderId);
+      if (target !== -1) {
+        memoryOrders[target].status = nextStatus;
+        localStorage.setItem('shree_orders', JSON.stringify(memoryOrders));
+        applyFilters();
+      }
+    }
+
+    function removeOrder(orderId) {
+      if (confirm(`Delete Order #${orderId}?`)) {
+        memoryOrders = memoryOrders.filter(o => o.id !== orderId);
+        localStorage.setItem('shree_orders', JSON.stringify(memoryOrders));
+        applyFilters();
+      }
+    }
+
+    function clearHistory() {
+      if (confirm("Permanently erase all order records?")) {
+        memoryOrders = [];
+        localStorage.removeItem('shree_orders');
+        applyFilters();
+      }
+    }
+
+    reloadOrders();
+  </script>
+</body>
+</html>

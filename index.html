@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>॥श्री॥ Homemade Food | Quality is Our Identity</title>
+  <style>
+    :root {
+      --bg-ivory: #FFF8EA;
+      --bg-cream: #F5EBD8;
+      --maroon: #641C2D;
+      --burgundy: #8F3044;
+      --gold: #C6A04A;
+      --gold-light: #FBF4E4;
+      --text-brown: #39251F;
+      --whatsapp-green: #168B52;
+      --white: #FFFFFF;
+      --border: #E8D3B9;
+      --shadow: 0 4px 18px rgba(100, 28, 45, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Noto Sans Devanagari", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-ivory);
+      color: var(--text-brown);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .top-ribbon {
+      height: 6px;
+      background: linear-gradient(90deg, var(--maroon), var(--gold), var(--burgundy), var(--gold), var(--maroon));
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 248, 234, 0.98);
+      border-bottom: 2px solid var(--border);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .shree-pill {
+      background: radial-gradient(circle, var(--maroon) 0%, var(--burgundy) 100%);
+      color: var(--gold-light);
+      font-size: 1.4rem;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 40px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .brand-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--maroon);
+      line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--maroon);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--gold);
+    }
+
+    .btn-wa-header {
+      background-color: var(--whatsapp-green);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 8px 18px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-wa-header:hover {
+      background-color: #116f41;
+      transform: translateY(-1px);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-section {
+      padding: 40px 0 50px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, #FFFDF8 0%, var(--bg-cream) 100%);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .corner-decor {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-color: var(--maroon);
+      border-style: solid;
+    }
+    .corner-tl { top: 10px; left: 10px; border-width: 3px 0 0 3px; }
+    .corner-tr { top: 10px; right: 10px; border-width: 3px 3px 0 0; }
+    .corner-bl { bottom: 10px; left: 10px; border-width: 0 0 3px 3px; }
+    .corner-br { bottom: 10px; right: 10px; border-width: 0 3px 3px 0; }
+
+    .hero-content h1 {
+      font-size: 2.6rem;
+      color: var(--maroon);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .hero-content .description {
+      font-size: 1.05rem;
+      color: var(--text-brown);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .hl-item {
+      background: var(--gold-light);
+      padding: 8px 12px;
+      border-radius: 8px;
+      border-left: 4px solid var(--gold);
+      font-weight: 700;
+      color: var(--burgundy);
+      font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+    }
+
+    .btn-maroon {
+      background: var(--maroon);
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--maroon);
+      color: var(--maroon);
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .hero-visual-card {
+      background: var(--gold-light);
+      border: 1px dashed var(--gold);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .visual-circle {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, var(--maroon) 0%, var(--burgundy) 100%);
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .section-header {
+      text-align: center;
+      margin: 50px 0 30px;
+    }
+
+    .section-header h2 {
+      font-size: 2.1rem;
+      color: var(--maroon);
+      margin-bottom: 4px;
+    }
+
+    .section-header p {
+      color: var(--burgundy);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+    }
+
+    .prod-type {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: var(--gold-light);
+      padding: 3px 8px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+      align-self: flex-start;
+    }
+
+    .prod-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--maroon);
+      margin-bottom: 4px;
+    }
+
+    .prod-cost {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--burgundy);
+      margin-bottom: 16px;
+    }
+
+    .stepper-box {
+      background: var(--bg-ivory);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .btn-step {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      background: var(--maroon);
+      color: var(--white);
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn-step:disabled {
+      background: #D9C8BE;
+      cursor: not-allowed;
+    }
+
+    .step-label {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--maroon);
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .prod-subtotal-row {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-brown);
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px dashed var(--border);
+      padding-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .btn-add-cart {
+      background: var(--burgundy);
+      color: var(--white);
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--maroon);
+    }
+
+    .cart-wrapper {
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .cart-table th {
+      background: var(--gold-light);
+      color: var(--maroon);
+      font-weight: 700;
+      padding: 10px;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .cart-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-total-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-cream);
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--maroon);
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .cart-footer-btns {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn-clear-cart {
+      background: none;
+      border: 1px solid #C44C4C;
+      color: #C44C4C;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .about-box {
+      background: var(--bg-cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-box h3 {
+      font-size: 1.7rem;
+      color: var(--maroon);
+      margin-bottom: 12px;
+    }
+
+    .about-box p {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .values-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .value-card h4 {
+      color: var(--maroon);
+      margin: 8px 0 6px;
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .step-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 18px;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .step-badge {
+      position: absolute;
+      top: -12px;
+      left: 16px;
+      background: var(--maroon);
+      color: var(--gold-light);
+      border: 2px solid var(--gold);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .step-box h4 {
+      color: var(--maroon);
+      margin: 8px 0 6px;
+      font-size: 1rem;
+    }
+
+    .special-section-box {
+      background: linear-gradient(135deg, #FFF7E7 0%, #FAEDD2 100%);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: var(--shadow);
+    }
+
+    .special-form {
+      max-width: 750px;
+      margin: 20px auto 0;
+      background: var(--white);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      color: var(--maroon);
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background-color: var(--bg-ivory);
+      outline: none;
+    }
+
+    .form-group input:focus, 
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background-color: var(--white);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .btn-enquire-now {
+      background-color: var(--whatsapp-green);
+      color: var(--white);
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .checkout-wrapper {
+      background: var(--white);
+      border: 2px solid var(--maroon);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: var(--shadow);
+    }
+
+    .order-preview {
+      background: var(--bg-cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn-final-order {
+      background: linear-gradient(180deg, #189859 0%, #116F41 100%);
+      color: var(--white);
+      border: 2px solid #0D5431;
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .contact-wrapper {
+      background: var(--bg-cream);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 35px;
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background-color: var(--maroon);
+      color: var(--gold-light);
+      padding: 40px 0 20px;
+      margin-top: 70px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-grid h4 {
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 6px;
+    }
+
+    .footer-links a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(198, 160, 74, 0.3);
+      padding-top: 15px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero-box, .about-box, .footer-grid { grid-template-columns: 1fr; }
+      .nav-menu { display: none; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-ribbon"></div>
+
+  <!-- SECTION 1: HEADER & NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <a href="#home" class="brand-link">
+        <span class="shree-pill">॥श्री॥</span>
+        <div>
+          <div class="brand-title">Homemade Food</div>
+          <div class="brand-tagline">Quality is Our Identity</div>
+        </div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#how-to-order">How to Order</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="admin.html">Dashboard</a></li>
+      </ul>
+      <a href="https://wa.me/919925481218" target="_blank" class="btn-wa-header">
+        ORDER ON WHATSAPP
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- SECTION 2: HERO / WELCOME SECTION -->
+    <section id="home" class="hero-section">
+      <div class="hero-box">
+        <div class="corner-decor corner-tl"></div>
+        <div class="corner-decor corner-tr"></div>
+        <div class="corner-decor corner-bl"></div>
+        <div class="corner-decor corner-br"></div>
+
+        <div class="hero-content">
+          <h1>HOMEMADE FOOD</h1>
+          <div class="subtitle">Quality is Our Identity</div>
+          <p class="description">
+            Experience the authentic taste of traditional homemade snacks and sweets, lovingly prepared with quality ingredients and traditional recipes.
+          </p>
+
+          <div class="hero-highlights">
+            <div class="hl-item">✓ 100% Homemade</div>
+            <div class="hl-item">✓ Quality Ingredients</div>
+            <div class="hl-item">✓ Freshly Prepared</div>
+            <div class="hl-item">✓ Made to Order</div>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#menu" class="btn-maroon">EXPLORE OUR MENU</a>
+            <a href="#how-to-order" class="btn-outline">HOW IT WORKS</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="visual-circle">॥श्री॥</div>
+          <h3 style="color:var(--maroon); margin-bottom: 6px;">Traditional Maharashtrian Faral</h3>
+          <p style="color:var(--text-brown); font-size:0.9rem;">Ukadiche Modak • Karanji • Special Chivda • Khobre Pak</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: OUR MENU -->
+    <section id="menu">
+      <div class="section-header">
+        <h2>Our Homemade Collection</h2>
+        <p>Traditional flavours, prepared with care.</p>
+      </div>
+
+      <div class="product-grid" id="product-list"></div>
+    </section>
+
+    <!-- SECTION 4: SHOPPING CART -->
+    <section id="cart" style="margin-top: 50px;">
+      <div class="section-header">
+        <h2>Your Shopping Cart</h2>
+        <p>Review your selected items</p>
+      </div>
+
+      <div class="cart-wrapper">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cart-rows">
+            <tr>
+              <td colspan="4" style="text-align: center; color: var(--text-brown); padding: 25px;">
+                Your shopping cart is currently empty. Please choose items from the menu above.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="cart-total-banner">
+          <span>Estimated Total:</span>
+          <span id="grand-total-display">₹0</span>
+        </div>
+
+        <div class="cart-footer-btns">
+          <button type="button" class="btn-clear-cart" onclick="emptyCart()">Clear Cart</button>
+          <a href="#checkout" class="btn-maroon" id="checkout-link-btn" style="pointer-events: none; opacity: 0.5;">
+            PROCEED TO CHECKOUT
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: ABOUT US -->
+    <section id="about" style="margin-top: 60px;">
+      <div class="about-box">
+        <div>
+          <h3>A Tradition of Homemade Goodness</h3>
+          <p>
+            ॥श्री॥ Homemade Food brings you the traditional taste of homemade snacks and sweets. Every preparation reflects our commitment to quality, freshness and authentic flavours.
+          </p>
+          <p>
+            We believe that good food begins with good ingredients, traditional recipes and careful preparation. Our aim is to bring the warmth and taste of homemade food to every customer.
+          </p>
+          <div style="font-weight: 700; color: var(--maroon); margin-top: 8px;">
+            — Pradnya Tamhankar (+91 9925481218)
+          </div>
+        </div>
+        <div style="text-align:center; background:var(--gold-light); padding:25px; border-radius:12px; border:1px dashed var(--gold);">
+          <div style="font-size: 2.8rem; color: var(--maroon);">॥श्री॥</div>
+          <h4 style="color:var(--maroon); margin-top: 6px;">Handcrafted with Purity</h4>
+          <p style="font-size:0.85rem; color:var(--text-brown); margin-top:4px;">Prepared in small, fresh batches just like home.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: WHY CHOOSE US? -->
+    <section id="why-us" style="margin-top: 60px;">
+      <div class="section-header">
+        <h2>The Goodness of Homemade Food</h2>
+        <p>Why customers love our kitchen</p>
+      </div>
+
+      <div class="values-row">
+        <div class="value-card">
+          <div style="font-size: 1.8rem;">🏠</div>
+          <h4>Homemade Quality</h4>
+          <p style="font-size: 0.9rem;">Prepared with utmost care and strict hygiene standards.</p>
+        </div>
+        <div class="value-card">
+          <div style="font-size: 1.8rem;">✨</div>
+          <h4>Quality Ingredients</h4>
+          <p style="font-size: 0.9rem;">Carefully selected pure ingredients with zero preservatives.</p>
+        </div>
+        <div class="value-card">
+          <div style="font-size: 1.8rem;">📜</div>
+          <h4>Traditional Recipes</h4>
+          <p style="font-size: 0.9rem;">Authentic regional taste passed down through generations.</p>
+        </div>
+        <div class="value-card">
+          <div style="font-size: 1.8rem;">📦</div>
+          <h4>Made to Order</h4>
+          <p style="font-size: 0.9rem;">Always made fresh upon order, never pre-packed or frozen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: HOW TO ORDER -->
+    <section id="how-to-order" style="margin-top: 60px;">
+      <div class="section-header">
+        <h2>Ordering Made Simple</h2>
+        <p>Easy 4-step ordering guide</p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step-box">
+          <div class="step-badge">01</div>
+          <h4>EXPLORE OUR MENU</h4>
+          <p style="font-size: 0.85rem;">Browse our collection of homemade snacks and sweets.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-badge">02</div>
+          <h4>SELECT YOUR PRODUCTS</h4>
+          <p style="font-size: 0.85rem;">Choose your favourite items and required quantities.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-badge">03</div>
+          <h4>ENTER YOUR DETAILS</h4>
+          <p style="font-size: 0.85rem;">Provide your name, phone number, and delivery date/time.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-badge">04</div>
+          <h4>PLACE YOUR ORDER</h4>
+          <p style="font-size: 0.85rem;">Send your order directly via WhatsApp for quick confirmation.</p>
+        </div>
+      </div>
+      <p style="text-align: center; color: var(--burgundy); font-weight: 700; margin-top: 20px; font-style: italic; font-size: 0.9rem;">
+        * Note: Your order will be confirmed after direct communication with us on WhatsApp.
+      </p>
+    </section>
+
+    <!-- SECTION 8: LOOKING FOR SOMETHING SPECIAL? -->
+    <section id="special-enquiry" style="margin-top: 60px;">
+      <div class="special-section-box">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <h3 style="font-size: 1.8rem; color: var(--maroon); margin-bottom: 6px;">Looking for Something Special?</h3>
+          <p style="font-size: 1rem;">
+            Have something particular in mind? Tell us what you need, and let's see what we can come up with! Whether it's a special sweet, a traditional snack or something unique for your occasion, we'd love to hear your ideas.
+          </p>
+        </div>
+
+        <div class="special-form">
+          <div class="form-group">
+            <label>What are you looking for?</label>
+            <textarea id="custom-request-name" rows="2" placeholder="Tell us what you'd love to have... We'll see what we can come up with! (e.g. Besan Ladoo, Chakli, Puran Poli)"></textarea>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Approximate Quantity (Optional)</label>
+              <input type="text" id="custom-request-qty" placeholder="e.g. 500 g, 1 kg, 20 pieces">
+            </div>
+            <div class="form-group">
+              <label>Any Specific Requirements? (Optional)</label>
+              <input type="text" id="custom-request-notes" placeholder="e.g. Less sugar, less spicy, festive packing">
+            </div>
+          </div>
+
+          <button type="button" class="btn-enquire-now" onclick="sendCustomEnquiry()">
+            ENQUIRE ON WHATSAPP
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CUSTOMER CHECKOUT -->
+    <section id="checkout" style="margin-top: 60px;">
+      <div class="section-header">
+        <h2>Complete Your Order</h2>
+        <p>Enter your details to confirm order</p>
+      </div>
+
+      <div class="checkout-wrapper">
+        <div class="order-preview">
+          <h4 style="color:var(--maroon); margin-bottom: 8px;">Order Summary</h4>
+          <div id="checkout-summary-body" style="font-size: 0.95rem; margin-bottom: 8px;">
+            No items in cart yet.
+          </div>
+          <div style="font-weight: 800; color: var(--burgundy); font-size: 1.15rem; border-top: 1px dashed var(--border); padding-top: 8px;">
+            Estimated Total: <span id="checkout-final-total">₹0</span>
+          </div>
+        </div>
+
+        <form id="orderForm">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="cust-name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp Number *</label>
+              <input type="tel" id="cust-phone" placeholder="e.g. 9876543210" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Order Needed Date *</label>
+              <input type="date" id="cust-date" required>
+            </div>
+            <div class="form-group">
+              <label>Order Needed Time *</label>
+              <input type="time" id="cust-time" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Special Instructions (Optional)</label>
+            <textarea id="cust-notes" rows="3" placeholder="Any special instructions? For example, make chivda less spicy, pack products separately, etc."></textarea>
+          </div>
+
+          <button type="button" class="btn-final-order" onclick="processOrderCheckout()">
+            PLACE ORDER VIA WHATSAPP
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECTION 10: CONTACT US -->
+    <section id="contact" style="margin-top: 60px;">
+      <div class="contact-wrapper">
+        <span class="shree-pill" style="display:inline-block; margin-bottom: 10px;">॥श्री॥</span>
+        <h3 style="color:var(--maroon); font-size:1.6rem;">॥श्री॥ Homemade Food</h3>
+        <p style="color:var(--gold); font-weight:700; font-style:italic;">Quality is Our Identity</p>
+        <p style="margin-top: 12px; font-weight: 600;">Contact Person: Pradnya Tamhankar</p>
+        <p style="font-size: 1.25rem; font-weight: 800; color: var(--maroon); margin-top: 4px;">+91 9925481218</p>
+
+        <div style="display:flex; justify-content:center; gap:14px; margin-top:20px;">
+          <a href="https://wa.me/919925481218" target="_blank" class="btn-wa-header" style="font-size:0.95rem; padding:10px 20px;">Chat on WhatsApp</a>
+          <a href="tel:9925481218" class="btn-outline" style="padding:10px 20px;">Call Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 11: FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+          <span class="shree-pill" style="font-size: 1rem; padding: 4px 10px;">॥श्री॥</span>
+          <span style="font-size: 1.15rem; font-weight: 800;">Homemade Food</span>
+        </div>
+        <p style="color: var(--gold); font-style: italic; margin-bottom: 10px;">Quality is Our Identity.</p>
+        <p style="font-size: 0.85rem; line-height: 1.6;">Traditional Maharashtrian sweets and savories made with pure ingredients and time-honored family recipes.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#how-to-order">How to Order</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="admin.html">Owner Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p style="margin-bottom: 6px;"><strong>Pradnya Tamhankar</strong></p>
+        <p style="margin-bottom: 6px;">WhatsApp: +91 9925481218</p>
+        <p>Freshly Prepared to Order</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 ॥श्री॥ Homemade Food. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- FUNCTIONALITY SCRIPT -->
+  <script>
+    // 7 Official Menu Items
+    const catalog = [
+      { id: 1, name: "Chivda (Nylon Poha)", price: 380, unit: "kg" },
+      { id: 2, name: "Chivda (Churmura)", price: 500, unit: "kg" },
+      { id: 3, name: "Chivda (Makai)", price: 500, unit: "kg" },
+      { id: 4, name: "Khobre Pak", price: 600, unit: "kg" },
+      { id: 5, name: "Ukadiche Modak", price: 35, unit: "piece" },
+      { id: 6, name: "Karanji", price: 850, unit: "kg" },
+      { id: 7, name: "Talniche Modak", price: 15, unit: "piece" }
+    ];
+
+    // Card temporary quantities starting strictly at 0
+    const cardSelection = {};
+    catalog.forEach(item => cardSelection[item.id] = 0);
+
+    // Active customer shopping cart
+    let activeCart = {};
+
+    function renderCatalog() {
+      const container = document.getElementById('product-list');
+      container.innerHTML = catalog.map(p => `
+        <div class="product-card">
+          <div>
+            <span class="prod-type">${p.unit === 'kg' ? 'By Weight (kg)' : 'By Piece'}</span>
+            <div class="prod-title">${p.name}</div>
+            <div class="prod-cost">₹${p.price} <span style="font-size:0.85rem; font-weight:400; color:var(--text-brown);">/ ${p.unit}</span></div>
+          </div>
+
+          <div>
+            <div class="stepper-box">
+              <button class="btn-step" id="dec-btn-${p.id}" onclick="changeStep(${p.id}, -1)" disabled>−</button>
+              <span class="step-label" id="step-label-${p.id}">0 ${p.unit === 'kg' ? 'g' : 'pcs'}</span>
+              <button class="btn-step" onclick="changeStep(${p.id}, 1)">+</button>
+            </div>
+
+            <div class="prod-subtotal-row">
+              <span>Subtotal:</span>
+              <span id="subtotal-${p.id}">₹0</span>
+            </div>
+
+            <button type="button" class="btn-add-cart" onclick="commitToCart(${p.id})">ADD TO CART</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function changeStep(id, direction) {
+      const p = catalog.find(x => x.id === id);
+      const stepValue = p.unit === "kg" ? 250 : 1;
+
+      cardSelection[id] += direction * stepValue;
+      if (cardSelection[id] < 0) cardSelection[id] = 0;
+
+      // Minus disabled at zero
+      document.getElementById(`dec-btn-${id}`).disabled = cardSelection[id] === 0;
+
+      // Label formatting
+      let display = "";
+      if (p.unit === "kg") {
+        display = cardSelection[id] >= 1000 
+          ? `${(cardSelection[id]/1000).toFixed(2).replace(/\.00$/, '')} kg` 
+          : `${cardSelection[id]} g`;
+      } else {
+        display = `${cardSelection[id]} pcs`;
+      }
+      document.getElementById(`step-label-${id}`).innerText = display;
+
+      // Subtotal calculation
+      const itemCost = p.unit === "kg" 
+        ? (cardSelection[id] / 1000) * p.price 
+        : cardSelection[id] * p.price;
+      document.getElementById(`subtotal-${id}`).innerText = `₹${itemCost.toFixed(0)}`;
+    }
+
+    function commitToCart(id) {
+      const selected = cardSelection[id];
+      if (selected === 0) {
+        alert("Please choose a quantity using the (+) button before adding to cart.");
+        return;
+      }
+      activeCart[id] = selected;
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      const tbody = document.getElementById('cart-rows');
+      const keys = Object.keys(activeCart).filter(k => activeCart[k] > 0);
+      const checkoutBtn = document.getElementById('checkout-link-btn');
+
+      if (keys.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="4" style="text-align: center; color: var(--text-brown); padding: 25px;">
+              Your shopping cart is currently empty. Please choose items from the menu above.
+            </td>
+          </tr>
+        `;
+        document.getElementById('grand-total-display').innerText = "₹0";
+        document.getElementById('checkout-final-total').innerText = "₹0";
+        document.getElementById('checkout-summary-body').innerHTML = "No items in cart yet.";
+        checkoutBtn.style.pointerEvents = "none";
+        checkoutBtn.style.opacity = "0.5";
+        return;
+      }
+
+      checkoutBtn.style.pointerEvents = "auto";
+      checkoutBtn.style.opacity = "1";
+
+      let sum = 0;
+      let summaryList = "<ul style='margin-left: 20px;'>";
+
+      tbody.innerHTML = keys.map(k => {
+        const item = catalog.find(x => x.id === parseInt(k));
+        const qty = activeCart[k];
+        const cost = item.unit === "kg" ? (qty / 1000) * item.price : qty * item.price;
+        sum += cost;
+
+        const qtyLabel = item.unit === "kg" 
+          ? (qty >= 1000 ? `${(qty/1000).toFixed(2).replace(/\.00$/, '')} kg` : `${qty} g`) 
+          : `${qty} pcs`;
+
+        summaryList += `<li><b>${item.name}</b> — ${qtyLabel} (₹${cost.toFixed(0)})</li>`;
+
+        return `
+          <tr>
+            <td><strong>${item.name}</strong></td>
+            <td>${qtyLabel}</td>
+            <td><strong>₹${cost.toFixed(0)}</strong></td>
+            <td>
+              <button onclick="deleteFromCart(${item.id})" style="color:#C44C4C; background:none; border:none; cursor:pointer; font-weight:bold;">✕ Remove</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      summaryList += "</ul>";
+      document.getElementById('checkout-summary-body').innerHTML = summaryList;
+      document.getElementById('grand-total-display').innerText = `₹${sum.toFixed(0)}`;
+      document.getElementById('checkout-final-total').innerText = `₹${sum.toFixed(0)}`;
+    }
+
+    function deleteFromCart(id) {
+      delete activeCart[id];
+      updateCartDisplay();
+    }
+
+    function emptyCart() {
+      if (confirm("Clear all items from your cart?")) {
+        activeCart = {};
+        updateCartDisplay();
+      }
+    }
+
+    // Custom Enquiry (Section 8)
+    function sendCustomEnquiry() {
+      const title = document.getElementById('custom-request-name').value.trim();
+      const qty = document.getElementById('custom-request-qty').value.trim();
+      const notes = document.getElementById('custom-request-notes').value.trim();
+
+      if (!title) {
+        alert("Please type what snack or sweet you are looking for.");
+        return;
+      }
+
+      let message = `*॥श्री॥ Homemade Food - Custom Special Enquiry*\n\n`;
+      message += `*What I am looking for:* ${title}\n`;
+      if (qty) message += `*Quantity:* ${qty}\n`;
+      if (notes) message += `*Requirements:* ${notes}\n\n`;
+      message += `Kindly let me know if this can be prepared and the price estimate. Thank you!`;
+
+      window.open(`https://wa.me/919925481218?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    // Checkout & WhatsApp Ordering (Section 9)
+    function processOrderCheckout() {
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const date = document.getElementById('cust-date').value;
+      const time = document.getElementById('cust-time').value;
+      const notes = document.getElementById('cust-notes').value.trim();
+
+      const customTitle = document.getElementById('custom-request-name').value.trim();
+      const customQty = document.getElementById('custom-request-qty').value.trim();
+
+      const keys = Object.keys(activeCart).filter(k => activeCart[k] > 0);
+
+      if (keys.length === 0 && !customTitle) {
+        alert("Please add items to your cart or specify a custom item request.");
+        return;
+      }
+
+      if (!name || !phone || !date || !time) {
+        alert("Please fill in your Name, Contact Number, Required Date, and Time.");
+        return;
+      }
+
+      let grandTotal = 0;
+      const orderLines = [];
+
+      keys.forEach(k => {
+        const item = catalog.find(x => x.id === parseInt(k));
+        const qty = activeCart[k];
+        const cost = item.unit === "kg" ? (qty / 1000) * item.price : qty * item.price;
+        grandTotal += cost;
+        const qtyText = item.unit === "kg" 
+          ? (qty >= 1000 ? `${qty/1000} kg` : `${qty} g`) 
+          : `${qty} pcs`;
+        orderLines.push({ name: item.name, quantity: qtyText, amount: cost });
+      });
+
+      const orderNumber = "SHF-" + Math.floor(1000 + Math.random() * 9000);
+      const newOrderData = {
+        id: orderNumber,
+        placedDate: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+        name,
+        phone,
+        date,
+        time,
+        items: orderLines,
+        customOrder: customTitle ? `${customTitle} (${customQty || 'As discussed'})` : "None",
+        specialInstructions: notes || "None",
+        total: grandTotal,
+        status: "New"
+      };
+
+      // Save order for admin dashboard in browser storage
+      const existing = JSON.parse(localStorage.getItem('shree_orders') || '[]');
+      existing.unshift(newOrderData);
+      localStorage.setItem('shree_orders', JSON.stringify(existing));
+
+      // Build WhatsApp Message
+      let text = `*॥श्री॥ Homemade Food - ORDER #${orderNumber}*\n`;
+      text += `_Quality is Our Identity_\n\n`;
+      text += `*Customer Details:*\n`;
+      text += `• Name: ${name}\n`;
+      text += `• Phone: ${phone}\n`;
+      text += `• Order Needed Date: ${date}\n`;
+      text += `• Order Needed Time: ${time}\n\n`;
+      
+      text += `*Order Items:*\n`;
+      orderLines.forEach(i => {
+        text += `• ${i.name} - ${i.quantity} (₹${i.amount})\n`;
+      });
+
+      if (customTitle) {
+        text += `• *Custom Request:* ${customTitle} ${customQty ? `(${customQty})` : ''}\n`;
+      }
+
+      if (notes) {
+        text += `\n*Special Instructions:* ${notes}\n`;
+      }
+
+      text += `\n*Estimated Total:* ₹${grandTotal.toFixed(0)}\n\n`;
+      text += `Please confirm my order and share preparation/pickup details. Thank you!`;
+
+      window.open(`https://wa.me/919925481218?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    renderCatalog();
+  </script>
+</body>
+</html>

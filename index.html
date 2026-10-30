@@ -23,7 +23,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Noto Sans Devanagari", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
     }
 
     body {
@@ -63,7 +63,7 @@
       text-decoration: none;
     }
 
-    .shree-pill {
+    .shree-badge {
       background: radial-gradient(circle, var(--maroon) 0%, var(--burgundy) 100%);
       color: var(--gold-light);
       font-size: 1.4rem;
@@ -214,6 +214,7 @@
       border-radius: 8px;
       font-weight: 700;
       font-size: 0.95rem;
+      display: inline-block;
     }
 
     .btn-outline {
@@ -224,29 +225,15 @@
       border-radius: 8px;
       font-weight: 700;
       font-size: 0.95rem;
+      display: inline-block;
     }
 
     .hero-visual-card {
       background: var(--gold-light);
       border: 1px dashed var(--gold);
       border-radius: 16px;
-      padding: 30px;
+      padding: 15px;
       text-align: center;
-    }
-
-    .visual-circle {
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, var(--maroon) 0%, var(--burgundy) 100%);
-      border: 3px solid var(--gold);
-      border-radius: 50%;
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold-light);
-      font-size: 2.5rem;
-      font-weight: 800;
     }
 
     .section-header {
@@ -276,7 +263,7 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 22px;
+      padding: 20px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
@@ -289,6 +276,25 @@
       border-color: var(--gold);
     }
 
+    .prod-img-box {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: var(--gold-light);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prod-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .prod-type {
       font-size: 0.75rem;
       font-weight: 700;
@@ -297,7 +303,7 @@
       padding: 3px 8px;
       border-radius: 12px;
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       border: 1px solid var(--border);
       align-self: flex-start;
     }
@@ -675,7 +681,7 @@
   <header>
     <div class="nav-container">
       <a href="#home" class="brand-link">
-        <span class="shree-pill">॥श्री॥</span>
+        <span class="shree-badge">॥श्री॥</span>
         <div>
           <div class="brand-title">Homemade Food</div>
           <div class="brand-tagline">Quality is Our Identity</div>
@@ -726,8 +732,8 @@
         </div>
 
         <div class="hero-visual-card">
-          <div class="visual-circle">॥श्री॥</div>
-          <h3 style="color:var(--maroon); margin-bottom: 6px;">Traditional Maharashtrian Faral</h3>
+          <img src="hero-banner.jpg" alt="Traditional Maharashtrian Food" style="width: 100%; height: 210px; object-fit: cover; border-radius: 12px; border: 2px solid var(--gold);" onerror="this.src='https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=600&auto=format&fit=crop&q=80'">
+          <h3 style="color:var(--maroon); margin-top: 10px;">Traditional Maharashtrian Faral</h3>
           <p style="color:var(--text-brown); font-size:0.9rem;">Ukadiche Modak • Karanji • Special Chivda • Khobre Pak</p>
         </div>
       </div>
@@ -961,7 +967,7 @@
     <!-- SECTION 10: CONTACT US -->
     <section id="contact" style="margin-top: 60px;">
       <div class="contact-wrapper">
-        <span class="shree-pill" style="display:inline-block; margin-bottom: 10px;">॥श्री॥</span>
+        <span class="shree-badge" style="display:inline-block; margin-bottom: 10px;">॥श्री॥</span>
         <h3 style="color:var(--maroon); font-size:1.6rem;">॥श्री॥ Homemade Food</h3>
         <p style="color:var(--gold); font-weight:700; font-style:italic;">Quality is Our Identity</p>
         <p style="margin-top: 12px; font-weight: 600;">Contact Person: Pradnya Tamhankar</p>
@@ -981,7 +987,7 @@
     <div class="container footer-grid">
       <div>
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-          <span class="shree-pill" style="font-size: 1rem; padding: 4px 10px;">॥श्री॥</span>
+          <span class="shree-badge" style="font-size: 1rem; padding: 4px 10px;">॥श्री॥</span>
           <span style="font-size: 1.15rem; font-weight: 800;">Homemade Food</span>
         </div>
         <p style="color: var(--gold); font-style: italic; margin-bottom: 10px;">Quality is Our Identity.</p>
@@ -1015,18 +1021,22 @@
 
   <!-- FUNCTIONALITY SCRIPT -->
   <script>
-    // 7 Official Menu Items
-    const catalog = [
-      { id: 1, name: "Chivda (Nylon Poha)", price: 380, unit: "kg" },
-      { id: 2, name: "Chivda (Churmura)", price: 500, unit: "kg" },
-      { id: 3, name: "Chivda (Makai)", price: 500, unit: "kg" },
-      { id: 4, name: "Khobre Pak", price: 600, unit: "kg" },
-      { id: 5, name: "Ukadiche Modak", price: 35, unit: "piece" },
-      { id: 6, name: "Karanji", price: 850, unit: "kg" },
-      { id: 7, name: "Talniche Modak", price: 15, unit: "piece" }
+    // 7 Default Official Items
+    const defaultCatalog = [
+      { id: 1, name: "Chivda (Nylon Poha)", price: 380, unit: "kg", image: "chivda-poha.jpg" },
+      { id: 2, name: "Chivda (Churmura)", price: 500, unit: "kg", image: "chivda-churmura.jpg" },
+      { id: 3, name: "Chivda (Makai)", price: 500, unit: "kg", image: "chivda-makai.jpg" },
+      { id: 4, name: "Khobre Pak", price: 600, unit: "kg", image: "khobre-pak.jpg" },
+      { id: 5, name: "Ukadiche Modak", price: 35, unit: "piece", image: "ukadiche-modak.jpg" },
+      { id: 6, name: "Karanji", price: 850, unit: "kg", image: "karanji.jpg" },
+      { id: 7, name: "Talniche Modak", price: 15, unit: "piece", image: "talniche-modak.jpg" }
     ];
 
-    // Card temporary quantities starting strictly at 0
+    // Load custom catalog from localStorage if modified in admin.html, otherwise use default
+    const stored = localStorage.getItem('shree_custom_products');
+    const catalog = stored ? JSON.parse(stored) : defaultCatalog;
+
+    // Card temporary quantities starting at 0
     const cardSelection = {};
     catalog.forEach(item => cardSelection[item.id] = 0);
 
@@ -1038,6 +1048,9 @@
       container.innerHTML = catalog.map(p => `
         <div class="product-card">
           <div>
+            <div class="prod-img-box">
+              <img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/300x180?text=${encodeURIComponent(p.name)}'">
+            </div>
             <span class="prod-type">${p.unit === 'kg' ? 'By Weight (kg)' : 'By Piece'}</span>
             <div class="prod-title">${p.name}</div>
             <div class="prod-cost">₹${p.price} <span style="font-size:0.85rem; font-weight:400; color:var(--text-brown);">/ ${p.unit}</span></div>
@@ -1063,13 +1076,15 @@
 
     function changeStep(id, direction) {
       const p = catalog.find(x => x.id === id);
+      if (!p) return;
       const stepValue = p.unit === "kg" ? 250 : 1;
 
       cardSelection[id] += direction * stepValue;
       if (cardSelection[id] < 0) cardSelection[id] = 0;
 
-      // Minus disabled at zero
-      document.getElementById(`dec-btn-${id}`).disabled = cardSelection[id] === 0;
+      // Disable minus at 0
+      const decBtn = document.getElementById(`dec-btn-${id}`);
+      if (decBtn) decBtn.disabled = cardSelection[id] === 0;
 
       // Label formatting
       let display = "";
@@ -1080,13 +1095,15 @@
       } else {
         display = `${cardSelection[id]} pcs`;
       }
-      document.getElementById(`step-label-${id}`).innerText = display;
+      const label = document.getElementById(`step-label-${id}`);
+      if (label) label.innerText = display;
 
       // Subtotal calculation
       const itemCost = p.unit === "kg" 
         ? (cardSelection[id] / 1000) * p.price 
         : cardSelection[id] * p.price;
-      document.getElementById(`subtotal-${id}`).innerText = `₹${itemCost.toFixed(0)}`;
+      const subtotalEl = document.getElementById(`subtotal-${id}`);
+      if (subtotalEl) subtotalEl.innerText = `₹${itemCost.toFixed(0)}`;
     }
 
     function commitToCart(id) {
@@ -1128,6 +1145,7 @@
 
       tbody.innerHTML = keys.map(k => {
         const item = catalog.find(x => x.id === parseInt(k));
+        if (!item) return '';
         const qty = activeCart[k];
         const cost = item.unit === "kg" ? (qty / 1000) * item.price : qty * item.price;
         sum += cost;
@@ -1168,7 +1186,6 @@
       }
     }
 
-    // Custom Enquiry (Section 8)
     function sendCustomEnquiry() {
       const title = document.getElementById('custom-request-name').value.trim();
       const qty = document.getElementById('custom-request-qty').value.trim();
@@ -1188,7 +1205,6 @@
       window.open(`https://wa.me/919925481218?text=${encodeURIComponent(message)}`, '_blank');
     }
 
-    // Checkout & WhatsApp Ordering (Section 9)
     function processOrderCheckout() {
       const name = document.getElementById('cust-name').value.trim();
       const phone = document.getElementById('cust-phone').value.trim();
@@ -1216,6 +1232,7 @@
 
       keys.forEach(k => {
         const item = catalog.find(x => x.id === parseInt(k));
+        if (!item) return;
         const qty = activeCart[k];
         const cost = item.unit === "kg" ? (qty / 1000) * item.price : qty * item.price;
         grandTotal += cost;
@@ -1240,12 +1257,10 @@
         status: "New"
       };
 
-      // Save order for admin dashboard in browser storage
       const existing = JSON.parse(localStorage.getItem('shree_orders') || '[]');
       existing.unshift(newOrderData);
       localStorage.setItem('shree_orders', JSON.stringify(existing));
 
-      // Build WhatsApp Message
       let text = `*॥श्री॥ Homemade Food - ORDER #${orderNumber}*\n`;
       text += `_Quality is Our Identity_\n\n`;
       text += `*Customer Details:*\n`;
